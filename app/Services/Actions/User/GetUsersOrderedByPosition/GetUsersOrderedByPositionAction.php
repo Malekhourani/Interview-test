@@ -37,7 +37,7 @@ class GetUsersOrderedByPositionAction implements ActionInterface
             'username' => $command->user->username,
             'position' => $startPosition,
             'karma_score' => $command->user->karma_score,
-            'image_url' => $command->user->image->url
+            'image_url' => $command->user->image == null ? null : $command->user->image->url
         ];
 
         if ($command->numberOfRequiredUsersForEachChuck == 0) return collect([$requestedUserInfo]);
